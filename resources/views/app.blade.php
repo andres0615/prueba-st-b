@@ -28,7 +28,7 @@
     @foreach(glob(public_path('app/browser/polyfills*.js')) as $file)
         <!-- validar si estamos en produccion -->
          @if(app()->environment('production'))
-            <script src="{{ secure_asset('app/browser/' . basename($file)) }}" type="module" ></script>
+            <!-- <script src="{{ secure_asset('app/browser/' . basename($file)) }}" type="module" ></script> -->
          @else
             <script src="{{ asset('app/browser/' . basename($file)) }}" type="module" ></script>
          @endif
@@ -36,7 +36,7 @@
 
     @foreach(glob(public_path('app/browser/main*.js')) as $file)
         @if(app()->environment('production'))
-            <script src="{{ secure_asset('app/browser/' . basename($file)) }}" type="module" ></script>
+            <!-- <script src="{{ secure_asset('app/browser/' . basename($file)) }}" type="module" ></script> -->
          @else
             <script src="{{ asset('app/browser/' . basename($file)) }}" type="module" ></script>
          @endif
