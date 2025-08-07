@@ -16,11 +16,20 @@
     
     <!-- Scripts generados por Angular build -->
     @foreach(glob(public_path('app/browser/polyfills*.js')) as $file)
-        <script src="{{ asset('app/browser/' . basename($file)) }}" type="module" ></script>
+        <!-- validar si estamos en produccion -->
+         @if(app()->environment('production'))
+            <script src="{{ secure_asset('app/browser/' . basename($file)) }}" type="module" ></script>
+         @else
+            <script src="{{ asset('app/browser/' . basename($file)) }}" type="module" ></script>
+         @endif
     @endforeach
 
     @foreach(glob(public_path('app/browser/main*.js')) as $file)
-        <script src="{{ asset('app/browser/' . basename($file)) }}" type="module" ></script>
+        @if(app()->environment('production'))
+            <script src="{{ secure_asset('app/browser/' . basename($file)) }}" type="module" ></script>
+         @else
+            <script src="{{ asset('app/browser/' . basename($file)) }}" type="module" ></script>
+         @endif
     @endforeach
 
     <!-- <script src="{{ asset('app/browser/polyfills-FFHMD2TL.js')}}" type="module"></script>
