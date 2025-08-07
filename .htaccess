@@ -1,4 +1,15 @@
 RewriteEngine on
-RewriteCond %{REQUEST_URI} !^/api [NC]
-RewriteCond %{REQUEST_URI} !^public
+
+# Si es una ruta API, no redirigir
+RewriteCond %{REQUEST_URI} ^/api/
+RewriteRule ^(.*)$ - [L]
+
+# Si ya está en public, no redirigir
+RewriteCond %{REQUEST_URI} !^/public
+
+# Si es un archivo estático (css, js, images), redirigir a public
+RewriteCond %{REQUEST_URI} \.(css|js|png|jpg|jpeg|gif|ico|svg|woff|woff2|ttf|eot)$ [OR]
+# O si no es una ruta API, redirigir a public
+RewriteCond %{REQUEST_URI} !^/api
+
 RewriteRule ^(.*)$ public/$1 [L]
