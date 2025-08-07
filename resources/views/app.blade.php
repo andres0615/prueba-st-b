@@ -8,7 +8,13 @@
 
     <!-- Scripts generados por Angular build -->
     @foreach(glob(public_path('app/browser/*.css')) as $file)
-        <link rel="stylesheet" href="{{ asset('app/browser/' . basename($file)) }}">
+    <!-- validar si estamos en produccion -->
+         @if(app()->environment('production'))
+            <link rel="stylesheet" href="{{ secure_asset('app/browser/' . basename($file)) }}">
+         @else
+            <link rel="stylesheet" href="{{ asset('app/browser/' . basename($file)) }}">
+         @endif
+        
     @endforeach
 </head>
 <body>
