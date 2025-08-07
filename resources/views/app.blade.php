@@ -3,11 +3,12 @@
 <head>
     <meta charset="utf-8">
     <title>Mi App</title>
-    <base href="/"> <!-- Importante para Angular routing -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     @if(app()->environment('production'))
     <base href="/~usuario24/public/">
+    @else
+    <base href="/"> <!-- Importante para Angular routing -->
     @endif
 
     <!-- Scripts generados por Angular build -->
