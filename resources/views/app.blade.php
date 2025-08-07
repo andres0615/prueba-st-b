@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     @if(app()->environment('production'))
-    <base href="/~usuario24/public/">
+    <base href="/~usuario24/">
     @else
     <base href="/"> <!-- Importante para Angular routing -->
     @endif
