@@ -6,6 +6,10 @@
     <base href="/"> <!-- Importante para Angular routing -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    @if(app()->environment('production'))
+    <base href="/~usuario24/public/">
+    @endif
+
     <!-- Scripts generados por Angular build -->
     @foreach(glob(public_path('app/browser/*.css')) as $file)
     <!-- validar si estamos en produccion -->
