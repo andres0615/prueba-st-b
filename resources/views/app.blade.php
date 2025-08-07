@@ -11,6 +11,8 @@
     <base href="/"> <!-- Importante para Angular routing -->
     @endif
 
+    <script src="https://cdn.tailwindcss.com"></script>
+
     <!-- Scripts generados por Angular build -->
     @foreach(glob(public_path('app/browser/*.css')) as $file)
     <!-- validar si estamos en produccion -->
@@ -22,7 +24,7 @@
         
     @endforeach
 </head>
-<body>
+<body class="bg-slate-50 min-h-screen">
     <app-root></app-root>
     
     <!-- Scripts generados por Angular build -->

@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,6 +23,8 @@ Route::prefix('api')->group(function () {
     Route::get('/users', function(){
         echo 'Users API'; // Simulación de respuesta de la API
     });
+
+    // Route::post('/users', [UserController::class, 'store']);
 
     // Route::get('/users', [UserController::class, 'index']);
     // Route::get('/users/{id}', [UserController::class, 'show']);
