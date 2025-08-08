@@ -38,4 +38,25 @@ class SubcategoryService
 
         return $responseData;
     }
+
+    public function store($requestData)
+    {
+
+        // Crear un nuevo usuario
+        $category = $this->subcategoryModel->create([
+            'name' => $requestData['name'],
+            'state' => $requestData['state'],
+        ]);
+
+
+        $responseData = [
+            'success' => true,
+            'message' => 'Subcategoria creada exitosamente',
+            'data' => [
+                'category' => $category,
+            ]
+        ];
+
+        return $responseData;
+    }
 }

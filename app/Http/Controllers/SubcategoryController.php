@@ -33,4 +33,19 @@ class SubcategoryController extends Controller
             ], 500);
         }
     }
+
+    public function store(Request $request)
+    {
+        try {
+            $responseData = $this->subcategoryService->store($request->all());
+
+            return response()->json($responseData, 200);
+        } catch (\Throwable $th) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Error al crear la categoria',
+                'error' => config('app.debug') ? $th->getMessage() : 'Error interno del servidor',
+            ], 500);
+        }
+    }
 }
