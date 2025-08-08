@@ -4,9 +4,6 @@ namespace App\Services;
 
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
-// use Illuminate\Support\Facades\Hash;
-// use Illuminate\Support\Facades\DB;
-// use Exception;
 // use Illuminate\Support\Facades\Log;
 use Illuminate\Database\Eloquent\Builder;
 
