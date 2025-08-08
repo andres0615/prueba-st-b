@@ -6,6 +6,7 @@ use App\Models\Category;
 use Illuminate\Support\Facades\Hash;
 // use Illuminate\Support\Facades\Log;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Support\Facades\Log;
 
 class CategoryService
 {
@@ -86,6 +87,13 @@ class CategoryService
 
         $category->save();
 
+        if(!$requestData['state']){
+            $subcategories = $category->subcategories()->update(['state' => false]);
+            // hacer un log de $subcategories
+            Log::info('$subcategories: ');
+            Log::info($subcategories);
+        }
+        
         $responseData = [
             'success' => true,
             'message' => 'Categoria actualizado exitosamente',

@@ -46,6 +46,7 @@ class SubcategoryService
         $category = $this->subcategoryModel->create([
             'name' => $requestData['name'],
             'state' => $requestData['state'],
+            'category_id' => $requestData['categoryId'],
         ]);
 
 
@@ -54,6 +55,58 @@ class SubcategoryService
             'message' => 'Subcategoria creada exitosamente',
             'data' => [
                 'category' => $category,
+            ]
+        ];
+
+        return $responseData;
+    }
+
+    public function show($id)
+    {
+        // Obtener todos los usuarios
+        $subcategory = $this->subcategoryModel->findOrFail($id)->first();
+
+        $responseData = [
+            'success' => true,
+            'message' => 'categoria obtenido exitosamente',
+            'data' => [
+                'subcategory' => $subcategory,
+            ]
+        ];
+
+        return $responseData;
+    }
+
+    public function update($requestData, $id)
+    {
+
+        $subcategory = $this->subcategoryModel->findOrFail($id)->first();
+
+        $subcategory->name = $requestData['name'];
+        $subcategory->state = $requestData['state'];
+        $subcategory->category_id = $requestData['categoryId'];
+
+        $subcategory->save();
+
+        $responseData = [
+            'success' => true,
+            'message' => 'Categoria actualizado exitosamente',
+            'data' => [
+                'subcategory' => $subcategory,
+            ]
+        ];
+
+        return $responseData;
+    }
+
+    public function delete($id)
+    {
+        $subcategory = $this->subcategoryModel->findOrFail($id)->delete();
+
+        $responseData = [
+            'success' => true,
+            'message' => 'Subategoria eliminada exitosamente',
+            'data' => [
             ]
         ];
 
