@@ -20,9 +20,9 @@ use App\Http\Controllers\UserController;
 
 // Rutas API (estas van primero para que no sean capturadas por el catch-all)
 Route::prefix('api')->group(function () {
-    Route::get('/users', function(){
-        echo 'Users API'; // Simulación de respuesta de la API
-    });
+    // Route::get('/users', function(){
+    //     echo 'Users API'; // Simulación de respuesta de la API
+    // });
 
     // Route::post('/users', [UserController::class, 'store']);
 
