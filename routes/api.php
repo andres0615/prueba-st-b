@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\SubcategoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,4 +33,8 @@ Route::get('/category/{id}', [CategoryController::class, 'show']);
 Route::put('/category/{id}', [CategoryController::class, 'update']);
 Route::delete('/category/{id}', [CategoryController::class, 'delete']);
 
-
+Route::get('/subcategory', [SubcategoryController::class, 'index']);
+Route::post('/subcategory', [SubcategoryController::class, 'store']);
+Route::get('/subcategory/{id}', [SubcategoryController::class, 'show']);
+Route::put('/subcategory/{id}', [SubcategoryController::class, 'update']);
+Route::delete('/subcategory/{id}', [SubcategoryController::class, 'delete']);
